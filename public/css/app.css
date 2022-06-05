@@ -1,0 +1,366 @@
+body {
+    background-color: #fbfbfb;
+}
+
+@media (min-width: 991.98px) {
+    main {
+        padding-left: 240px;
+    }
+}
+
+
+/* Sidebar */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0;
+    /* Height of navbar */
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
+    width: 240px;
+    z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 100%;
+    }
+    .sidebar2 {
+        width: 100%;
+        position: fixed !important;
+        top: 50px !important;
+        display: none;
+    }
+    .sidebar2 li {
+        display: block !important;
+        width: 100%;
+    }
+}
+
+.sidebar .active {
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 16%), 0 1px 2px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* Scrollable contents if viewport is shorter than content. */
+}
+
+.logo-center {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    place-content: center;
+    font-size: 2.0rem;
+    font-weight: 800;
+}
+
+.form-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+form .form-group {
+    margin-bottom: 10px;
+}
+
+form .form-group label {
+    font-size: 0.9rem;
+}
+
+form .form-group .form-control {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+}
+
+form a {
+    font-size: 0.9rem;
+}
+
+.form-holder {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px 30px;
+    margin-bottom: 50px;
+}
+
+form button {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.navbar {
+    box-shadow: none !important;
+}
+
+.form-control:focus {
+    outline: none !important;
+    border: 1px solid var(--mdb-purple) !important;
+    box-shadow: 0 0 3px #719ECE !important;
+    /* border-radius: 15px !important; */
+}
+
+.btn-primary {
+    background-color: var(--mdb-purple) !important;
+}
+
+.btn:hover {
+    box-shadow: 0 0 3px #719ECE !important;
+}
+
+.search-input {
+    border-radius: 20px !important;
+}
+
+.list-group .active {
+    background-color: var(--mdb-purple) !important;
+}
+
+.list-group .list-group-item {
+    margin-top: 10px !important;
+    border: none !important;
+}
+
+.key {
+    font-size: 0.9rem;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(189, 188, 188);
+    margin-bottom: 5px;
+}
+
+.value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.page-link {
+    margin-left: 10px !important;
+}
+
+.page-item.active .page-link {
+    background-color: var(--mdb-purple);
+}
+
+.form-logo {
+    width: 100px;
+    height: 100px;
+}
+
+.form-no-logo {
+    font-size: 5rem;
+}
+
+body {
+    background-color: white;
+}
+
+.section {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+    min-height: calc(100vh - 100px);
+}
+
+.section2 {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-top: 30px;
+}
+
+.section-header {
+    border-left: 5px solid rgb(140, 9, 192) !important;
+    padding: 5px 10px;
+}
+
+.cat-list {
+    width: 100%;
+    float: left;
+    background-color: rgb(140, 9, 192);
+    padding: 10px 10px;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+}
+
+.one-cat {
+    float: left;
+    color: rgb(43, 42, 42);
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+    padding: 3px 20px;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.one-cat:hover {
+    background-color: rgb(140, 9, 192);
+    color: white;
+}
+
+.product-list {
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.product {
+    position: relative;
+    border: 1px solid #eec7fa;
+    border-radius: 10px;
+    margin-left: 20px;
+    padding: 10px !important;
+    margin-top: 10px;
+}
+
+.product img {
+    width: 100%;
+    height: 200px !important;
+    object-fit: cover;
+    height: auto;
+}
+
+.product .title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 65px;
+}
+
+.product .actions {
+    position: absolute;
+    bottom: 30px;
+    height: 30px;
+    width: 100%;
+}
+
+.product .actions .action-btns {
+    border: 1px solid violet;
+    float: left;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-left: 3px;
+    cursor: pointer;
+    width: calc(50% - 15px);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.product .actions .action-btns:hover {
+    background-color: rgb(144, 54, 167);
+    color: white;
+}
+
+.product-img {
+    /* border: 1px solid #eec7fa; */
+    border-radius: 10px;
+}
+
+.product-img img {
+    width: 100%;
+    height: calc(100vh - 200px) !important;
+    object-fit: cover;
+    border: 1px solid #719ECE;
+}
+
+.product-info {
+    position: relative;
+    height: calc(100vh - 200px) !important;
+}
+
+.product-info .title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 65px;
+    border-left: 5px solid rgb(112, 63, 177);
+    border-bottom: 1px solid rgb(227, 212, 247);
+    padding-left: 10px;
+    padding-bottom: 5px;
+}
+
+.product-info .actions {
+    position: absolute;
+    bottom: 30px;
+    height: 30px;
+    width: 100%;
+}
+
+.product-info .actions .action-btns {
+    border: 1px solid violet;
+    float: left;
+    padding: 3px 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    width: calc(50% - 20px);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.product-info .actions .action-btns:hover {
+    background-color: rgb(144, 54, 167);
+    color: white;
+}
+
+.menu .nav-item .nav-link {
+    text-align: center;
+    border-radius: 10px;
+}
+
+.menu .nav-item .active {
+    background-color: rgb(110, 77, 201);
+    color: white !important;
+    border-radius: 10px;
+    padding: 6px 15px;
+}
+
+.model-back {
+    position: fixed;
+    display: none;
+    place-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.466);
+    top: 0;
+    left: 0;
+    z-index: 5000;
+}
+
+.model-center {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.modal-body {
+    min-height: 300px;
+    min-width: 400px;
+}
+
+.modal-header h4 {
+    font-size: 1.1rem;
+}
+
+.basket-item-count {
+    background-color: rgb(235, 49, 16);
+    border-radius: 50%;
+    font-size: 0.9rem;
+    padding: 2px;
+}
+
+.cartpage {
+    border: 1px solid #c6c6f7;
+}

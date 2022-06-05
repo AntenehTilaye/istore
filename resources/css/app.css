@@ -1,0 +1,6 @@
+.logo-center {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    place-content: center;
+}
