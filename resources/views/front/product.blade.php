@@ -1,7 +1,12 @@
 @extends('layouts.front', ['title' => $store->store_name.' - '.$product->name, 'current' => 2])
 @section('content')
     <div class="container-sm page-con" style="margin-top: 100px">
-
+        <div class="alert alert-success popup-alert" id="alert-success">
+            
+        </div>
+        <div class="alert alert-danger popup-alert" id="alert-danger">
+            
+        </div>
         <div class="section row">
             <div class="row">
                 <div class="product-img col-md-7">
@@ -30,6 +35,19 @@
                             </div>
                             <div class="value">
                                 ${{ $product->price }}
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12  mt-2">
+                            <div class="key">
+                                Category
+                            </div>
+                            <div class="value">
+                                @foreach ($product_cats as $cat)
+                                    <div class="bordered-items">
+                                        {{ $cat->name }}
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

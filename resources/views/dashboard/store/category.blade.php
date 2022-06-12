@@ -7,6 +7,13 @@
                 <a href="{{ route('store.newcategory') }}" class="btn btn-outline-dark" data-mdb-ripple-color="dark">Add Category</a>
             </div>
         </div>
+        <div class="alert alert-success popup-alert" id="alert-success">
+            
+        </div>
+        <div class="alert alert-danger popup-alert" id="alert-danger">
+            
+        </div>
+
         @if (Session::get('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -21,6 +28,7 @@
             <thead class="bg-light">
               <tr>
                 <th>Category Name</th>
+                <th>Show or Hide</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -35,7 +43,13 @@
                   </div>
                 </td>
                 
-                  
+                  <td>
+                    <div class="form-check form-switch">
+                      
+                      <input class="form-check-input" onclick="show_or_hide('{{ $category->id }}')" type="checkbox"  role="switch" id="sh_button{{ $category->id }}" {{ $category->show_cat == 1? 'checked' : '' }}  />
+                    
+                    </div>
+                  </td>
                   
                   <form action="{{ route('store.destory_category', $category->id) }}" method="post">
                     <td>

@@ -37,13 +37,15 @@
                         <span class="text-danger">@error('picture'){{ $message }}@enderror</span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Price</label>
-                        <input type="text" class="form-control" name="price" placeholder="Enter Product Price" value="{{ old('price') }}">
-                        <span class="text-danger">@error('price'){{ $message }}@enderror</span>
-                    </div>
-
                     <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="email">Price</label>
+                                <input type="text" class="form-control" name="price" placeholder="Enter Product Price" value="{{ old('price') }}">
+                                <span class="text-danger">@error('price'){{ $message }}@enderror</span>
+                            </div>
+                        </div>
+
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="email">Amount</label>
@@ -51,18 +53,27 @@
                                 <span class="text-danger">@error('amount'){{ $message }}@enderror</span>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="row">
                         
-                        <div class="col-sm-6">
+                        
+                        <div class="col-12">
                             
                             <div class="form-group">
                                 <label for="email">Category</label>
-                                <select name="category_id" class="form-select">
-                                    <option selected>Select Category</option>
-                                    @foreach ($cats as $cat)
-                                        <option value="{{ $cat->id }}"> {{ $cat->name }} </option>
-                                    @endforeach
-                                    
-                                </select>
+                                <div class="text-danger">@error('category'){{ $message }}@enderror</div>
+                            </div>
+                            
+
+                            @foreach ($cats as $cat)
+                                <div isSelected = "no" onclick="section_toggle('section_number_{{ $cat->id }}', '{{ $cat->id }}')" id="section_number_{{ $cat->id }}" class="section-not-selected">
+                                    {{ $cat->name }}
+                                </div>
+                            @endforeach
+
+                            <div id="section_input_holder">
+                                
                             </div>
                         </div>
                     </div>
@@ -70,7 +81,7 @@
 
                     
                      
-                     <div class="form-group col-md-2">
+                     <div class="form-group col-md-3">
                          <button type="submit" class="btn btn-outline-dark btn-rounded">Add Product</button>
                      </div>
                      <br>

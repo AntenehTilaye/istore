@@ -149,10 +149,12 @@
   @yield('content')
 </main>
 <!--Main layout-->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <!-- MDB -->
     <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
     <!-- Custom scripts -->
     <script type="text/javascript" src="{{ asset('chartjs/chart.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
 </body>

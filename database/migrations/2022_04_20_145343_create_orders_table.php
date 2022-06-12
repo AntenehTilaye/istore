@@ -19,6 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->integer('storeId');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }

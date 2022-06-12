@@ -66,6 +66,33 @@ class CategoryController extends Controller
         
     }
 
+    function update_show_cat(Category $category)
+    {
+
+
+            $tobe = 1;
+            
+            if($category->show_cat == 1)
+             {
+                $tobe = 0;
+             }
+            
+            $data = [
+                'show_cat' => $tobe
+            ];
+
+
+            $save = $category->update($data);
+
+            if ($save) {
+                
+                return response()->json(['res'=>'success']);
+            } else {
+                return response()->json(['res'=>'error']);
+            }
+        
+    }
+
     function edit_category(Category $category)
     {
         // $category = DB::table('categorys')->where('id', '=', );

@@ -1,6 +1,12 @@
 @extends('layouts.front', ['title' => $store->store_name, 'current' => 1])
 @section('content')
     <div class="container-sm page-con" style="margin-top: 100px">
+        <div class="alert alert-success popup-alert" id="alert-success">
+            
+        </div>
+        <div class="alert alert-danger popup-alert" id="alert-danger">
+            
+        </div>
         <div class="section2">
             <div class="section-header">
                 <h6 class="text-uppercase font-weight-bold">

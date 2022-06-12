@@ -13,6 +13,7 @@ class OrderController extends Controller
 {
     function add_order(Request $request)
     {
+        $storeId = $request->store_id;
 
         request()->validate([
             'name' => 'required|regex:/[a-zA-Z0-9\s]+/|max:250',
@@ -28,7 +29,6 @@ class OrderController extends Controller
         $order->storeId = $request->store_id;
         DB::beginTransaction();
         $save = $order->save();
-        
         $success_count = 0;
         $all_count = 0;
         if ($save) {
@@ -56,7 +56,10 @@ class OrderController extends Controller
             if($success_count == $all_count ){
                 DB::commit();
                 Cookie::queue(Cookie::forget('shopping_cart'));
-                return redirect()->back()->with('success', 'Your Order is successfully Placed');
+                
+                $store = DB::table('stores')->where('id', $storeId)->first();
+                $order = DB::table('orders')->where('id', $orderId)->first(); 
+                return view('front.success', ['order'=>$order, 'store'=>$store ]);
 
             } else {
                 DB::rollBack();
@@ -70,10 +73,30 @@ class OrderController extends Controller
         
     }
 
+    function update_order_status(Order $order)
+    {
+
+            $data = [
+                'status' => request()->status
+            ];
+
+
+            $save = $order->update($data);
+
+            if ($save) {
+                
+                return redirect()->back()->with('success', 'Successfully updated the Order Status');
+            } else {
+                return redirect()->back()->with('fail', 'Something went Wrong, failed to update order status');
+            }
+        
+    }
+
    function orders(Request $request){
         $orders = DB::table('orders')->where('storeId', Auth::guard('store')->user()->id)->paginate(6);
         return view('dashboard.store.orders', compact('orders'))->with(request()->input('page'));
    }
+
 
    function detail (Order $order){
         $ordered = OrderProduct::where('order_products.orderId', $order->id)->get();

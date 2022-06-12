@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Store\StoreController;
+use App\Models\Order;
 use App\Models\Store;
 use Illuminate\Support\Facades\Auth;
 
@@ -62,6 +63,10 @@ Route::get('clear-cart', [CartController::class, 'clearcart']);
 
 
 Route::post('/order/add_order', [OrderController::class, 'add_order']);
+Route::get('/order/add_order', function () {
+    
+    return redirect()->back();
+});
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -144,6 +149,8 @@ Route::prefix('store')->name('store.')->group(function () {
         Route::put('/update_store/{store}', [StoreController::class, 'update'])->name('update_store');
         Route::put('/update_product/{product}', [ProductController::class, 'update'])->name('update_product');
         Route::put('/update_category/{category}', [CategoryController::class, 'update'])->name('update_category');
+        Route::put('/update_category_show_cat/{category}', [CategoryController::class, 'update_show_cat'])->name('update_show_cat');
+        Route::put('/update_order_status/{order}', [OrderController::class, 'update_order_status'])->name('update_order_status');
 
         Route::get('/profile/{store}', [StoreController::class, 'profile'])->name('profile');
         Route::get('/setting/{store}', [StoreController::class, 'setting'])->name('setting');

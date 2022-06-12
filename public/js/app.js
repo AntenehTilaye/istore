@@ -65,6 +65,11 @@ function add_to_cart(id, buy, url) {
                 if (buy == 1) {
                     window.location.href = url;
                 }
+                document.getElementById('product' + product_id).style.display = 'none';
+                show_popup_message(
+                    '#alert-success',
+                    'the Item is Successfully added to your Cart'
+                );
             },
         });
     }
@@ -194,3 +199,66 @@ $(document).ready(function() {
     });
 
 });
+
+
+
+function show_or_hide(catId) {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $.ajax({
+        url: '/store/update_category_show_cat/' + catId,
+        method: "PUT",
+        success: function(response) {
+            console.log(response)
+            if (response.res != 'error') {
+
+                show_popup_message(
+                    '#alert-success',
+                    'Category Status is Successfully Updated'
+                );
+
+            } else {
+                show_popup_message(
+                    '#alert-danger',
+                    'Something went Wrong! please Try Again'
+                );
+
+            }
+        }
+    });
+}
+
+function show_popup_message(itemId, message) {
+    $(itemId).html(message);
+    $(itemId).css("right", "20px")
+
+    setTimeout(() => {
+        $(itemId).html("");
+        $(itemId).css("right", "-450px")
+
+    }, 4000);
+}
+
+function section_toggle(theItem, theSection) {
+
+    theSec = document.getElementById(theItem);
+    secHolder = document.getElementById('section_input_holder');
+
+    if (theSec.getAttribute('isSelected') == "no") {
+        theSec.classList.add('section-selected');
+        theSec.setAttribute('isSelected', 'yes');
+
+        secHolder.innerHTML = secHolder.innerHTML + ' <input type="hidden" name="category[]" id = "input_' + theItem + '" value = "' + theSection + '" required>'
+
+    } else {
+        theSec.classList.remove('section-selected');
+        theSec.setAttribute('isSelected', 'no');
+        document.getElementById("input_" + theItem).remove();
+    }
+
+
+}

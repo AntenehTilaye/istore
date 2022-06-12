@@ -83,7 +83,7 @@ class StoreController extends Controller
         $cat = new Category();
         $cat->name = "All Categories";
         $cat->link_name = "all_categories";
-        $products = DB::table('products')->where('store_id', $store->id)->where('category_id', $cat->id)->get();
+        $products = DB::table('products')->where('store_id', $store->id)->get();
         
   
         return view('front.product', ['store'=>$store, 'products'=>$products, 'product'=>$product ]);
@@ -91,9 +91,16 @@ class StoreController extends Controller
             $store = DB::table('stores')->where('store_id', $storeId)->first();
             $product = DB::table('products')->where('id', $productId)->first(); 
             $cat = DB::table('categories')->where('link_name', $catId)->first();
-            $products = DB::table('products')->where('store_id', $store->id)->where('category_id', $cat->id)->get();
             
-            return view('front.product', ['store'=>$store, 'products'=>$products, 'product'=>$product ]);
+               
+            
+            $product_cats = DB::table('product_categories')->join('categories','categories.id','=','product_categories.categoryId')->where('product_categories.productId', $productId)->get();
+            $products = DB::table('products')->join('product_categories', 'product_categories.productId','=','products.id')
+                                            ->where('products.store_id', $store->id)
+                                            ->where('product_categories.categoryId', $cat->id)
+                                            ->paginate(6);
+            
+            return view('front.product', ['store'=>$store, 'products'=>$products, 'product'=>$product, 'product_cats'=>$product_cats]);
          
         }
     }
@@ -103,7 +110,7 @@ class StoreController extends Controller
         if($catId == 'all_categories'){
 
             $store = DB::table('stores')->where('store_id', $storeId)->first();
-            $categorys = DB::table('categories')->where('store_id', $store->id)->get();
+            $categorys = DB::table('categories')->where('store_id', $store->id)->where("show_cat", 1)->get();
             $cat = new Category();
             $cat->name = "All Categories";
             $cat->link_name = "all_categories";
@@ -114,9 +121,12 @@ class StoreController extends Controller
         } else {
 
             $store = DB::table('stores')->where('store_id', $storeId)->first();
-            $categorys = DB::table('categories')->where('store_id', $store->id)->get();
+            $categorys = DB::table('categories')->where('store_id', $store->id)->where("show_cat", 1)->get();
             $cat = DB::table('categories')->where('link_name', $catId)->first();
-            $products = DB::table('products')->where('store_id', $store->id)->where('category_id', $cat->id)->paginate(6);;
+            $products = DB::table('products')->join('product_categories', 'product_categories.productId','=','products.id')
+                                            ->where('products.store_id', $store->id)
+                                            ->where('product_categories.categoryId', $cat->id)
+                                            ->paginate(6);
             
             return view('front.category', ['store'=>$store, 'categorys'=>$categorys, 'products'=>$products, 'cat'=>$cat, ])->with(request()->input('page'));
               
@@ -129,16 +139,18 @@ class StoreController extends Controller
         
         $store = DB::table('stores')->where('store_id', $storeId)->first();
         $product = DB::table('products')->where('id', $productId)->first();
+        $product_cats = DB::table('product_categories')->join('categories','categories.id','=','product_categories.categoryId')->where('product_categories.productId', $productId)->get();
+
         $products = DB::table('products')->limit(6)->get();
   
-        return view('front.product', ['store'=>$store, 'products'=>$products, 'product'=>$product ]);
+        return view('front.product', ['store'=>$store, 'products'=>$products, 'product'=>$product, 'product_cats'=>$product_cats ]);
           
     }
 
     function store($storeId)
     {
         $store = DB::table('stores')->where('store_id', $storeId)->first();
-        $categorys = DB::table('categories')->where('store_id', $store->id)->get();
+        $categorys = DB::table('categories')->where('store_id', $store->id)->where("show_cat", 1)->get();
         $products = DB::table('products')->where('store_id', $store->id)->limit(8)->get();
         
         return view('front.store', ['store'=>$store, 'categorys'=>$categorys, 'products'=>$products]);

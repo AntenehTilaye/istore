@@ -17,6 +17,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'link_name',
-        'store_id'
+        'store_id',
+        'show_cat'
     ];
 }

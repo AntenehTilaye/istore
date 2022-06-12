@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('picture');
             $table->float('price');
             $table->integer('amount');
-            $table->integer('category_id');
             $table->integer('store_id');
             $table->timestamps();
         });

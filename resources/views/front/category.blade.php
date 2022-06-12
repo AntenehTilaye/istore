@@ -1,6 +1,12 @@
 @extends('layouts.front', ['title' => $store->store_name.' - '.$cat->name, 'current' => 2])
 @section('content')
     <div class="container-sm page-con" style="margin-top: 100px">
+        <div class="alert alert-success popup-alert" id="alert-success">
+            
+        </div>
+        <div class="alert alert-danger popup-alert" id="alert-danger">
+            
+        </div>
         <div class="section2">
             <div class="section-header">
                 <h6 class="text-uppercase font-weight-bold">
@@ -28,7 +34,7 @@
             <div class="product-list row">
                 @foreach ($products as $product)
                 <div class="product col-md-3">
-                    <a href="/show/{{ $store->store_id }}/{{ $product->id }}">
+                    <a href="/show/{{ $store->store_id }}/{{ $cat->link_name }}/{{ $product->id }}">
                         <img src="{{ asset('storage/images/' . $product->picture) }}" alt="the Image">
                     </a>
                     <div class="title">
