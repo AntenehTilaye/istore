@@ -4,23 +4,23 @@
       <div class="row">
         <div class="oneInfo mx-auto">
           <div class="dash-figure">
-            201
+            {{ $order_count }}
           </div>
           <div class="dash-title">
-            Orders
+            Total Orders
           </div>
         </div>
         <div class="oneInfo  mx-auto">
           <div class="dash-figure">
-            201
+            {{ $delivered_count }}
           </div>
           <div class="dash-title">
-            Delivered
+            Orders Delivered
           </div>
         </div>
         <div class="oneInfo  mx-auto">
           <div class="dash-figure">
-            201
+            {{ $product_count }}
           </div>
           <div class="dash-title">
             Products
@@ -28,10 +28,10 @@
         </div>
         <div class="oneInfo mx-auto">
           <div class="dash-figure">
-            201
+            {{ $cat_count }}
           </div>
           <div class="dash-title">
-            Category
+            Categories
           </div>
         </div>
       </div>

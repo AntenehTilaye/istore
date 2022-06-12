@@ -128,7 +128,7 @@ Route::prefix('store')->name('store.')->group(function () {
     });
 
     Route::middleware(['auth:store', 'PreventBackHistory'])->group(function () {
-        Route::view('/home', 'dashboard.store.home')->name('home');
+        Route::get('/home', [StoreController::class, 'dashboard'])->name('home');
         Route::post('/logout', [StoreController::class, 'logout'])->name('logout');
 
         Route::get('/products', [ProductController::class, 'products'])->name('products');

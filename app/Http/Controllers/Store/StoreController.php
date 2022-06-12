@@ -15,6 +15,17 @@ use Illuminate\Support\Facades\Mail;
 
 class StoreController extends Controller
 {
+
+    function dashboard(Request $request)
+    {
+        $cat_count = count(DB::table('categories')->where('store_id', Auth::guard('store')->user()->id)->get());
+        $product_count = count(DB::table('products')->where('store_id', Auth::guard('store')->user()->id)->get());
+        $order_count = count(DB::table('orders')->where('storeId', Auth::guard('store')->user()->id)->get());
+        $delivered_count = count(DB::table('orders')->where('storeId', Auth::guard('store')->user()->id)->where('status', 2)->get());
+        // return $cats;
+        return view('dashboard.store.stats', ['cat_count'=>$cat_count, 'product_count'=>$product_count, 'order_count'=>$order_count, 'delivered_count'=>$delivered_count]);
+    }
+
     function create(Request $request)
     {
         //Validate inputs
