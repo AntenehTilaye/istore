@@ -1,10 +1,48 @@
 @extends('layouts.store_app', ['title' => 'home page', 'current' => 1])
 @section('content')
     <div class="container row">
+      <div class="row">
+        <div class="oneInfo mx-auto">
+          <div class="dash-figure">
+            201
+          </div>
+          <div class="dash-title">
+            Orders
+          </div>
+        </div>
+        <div class="oneInfo  mx-auto">
+          <div class="dash-figure">
+            201
+          </div>
+          <div class="dash-title">
+            Delivered
+          </div>
+        </div>
+        <div class="oneInfo  mx-auto">
+          <div class="dash-figure">
+            201
+          </div>
+          <div class="dash-title">
+            Products
+          </div>
+        </div>
+        <div class="oneInfo mx-auto">
+          <div class="dash-figure">
+            201
+          </div>
+          <div class="dash-title">
+            Category
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-md-8 mx-auto mt-3">
             <canvas id="myChart"></canvas>
         </div>
+      </div>
+        
     </div>
+
     <script type="text/javascript" src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/chartjs/chart.js') }}"></script>
 

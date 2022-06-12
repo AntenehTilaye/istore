@@ -18,7 +18,7 @@ body {
     left: 0;
     padding: 58px 0 0;
     /* Height of navbar */
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 5%), 0 1px 2px 0 rgb(0 0 0 / 5%);
     width: 240px;
     z-index: 600;
 }
@@ -99,7 +99,26 @@ form button {
 }
 
 .navbar {
+    color: white !important;
+    background-color: #6f42c1 !important;
     box-shadow: none !important;
+    height: 55px;
+}
+
+.navbar-light .navbar-toggler {
+    color: white !important;
+}
+
+.navbar-light .navbar-brand {
+    color: white !important;
+}
+
+.navbar .input-group-text {
+    color: white !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
 }
 
 .form-control:focus {
@@ -401,4 +420,32 @@ body {
     font-size: small;
     border-radius: 5px;
     margin: 10px;
+}
+
+.oneInfo {
+    border: 2px solid #843cc9;
+    width: 23%;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #6f42c1;
+    padding: 10px;
+    text-align: center;
+}
+
+.oneInfo .dash-figure {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+}
+
+.oneInfo .dash-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .oneInfo {
+        width: 45% !important;
+    }
 }
