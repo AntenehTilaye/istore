@@ -6,6 +6,7 @@
             <div class="row">
                 <div class="col-md-12">
                     @if (isset($cart_data))
+                    @if (count($cart_data) > 0)
                         @if (Cookie::get('shopping_cart'))
                             @php $total="0" @endphp
                             <div class="shopping-cart ">
@@ -56,8 +57,8 @@
                                                         </td>
                                                         <td style="font-size: 20px;">
                                                             <button type="button"
-                                                                class="delete_cart_data btn shadow-0 btn-close">
-                                                                <li class="fa fa-trash-o"></li>
+                                                                class="delete_cart_data btn shadow-0">
+                                                                <li class="fa fa-trash"></li>
                                                             </button>
                                                         </td>
                                                         @php $total = $total + ($data["item_quantity"] * $data["item_price"]) @endphp
@@ -88,6 +89,7 @@
                                                     </h6>
                                                 </div>
                                             </div> --}}
+                                            
                                             <hr>
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -193,6 +195,17 @@
                                     </div>
                                 </div>
                             </div><!-- /.shopping-cart -->
+                        @endif
+                        @else
+                            <div class="row">
+                                <div class="col-md-12 mycard py-5 text-center">
+                                    <div class="mycards">
+                                        <h4>Your cart is currently empty.</h4>
+                                        <a href="/show/{{ $store->store_id }}" class="btn btn-sm btn-upper btn-outline-dark"
+                                            style="font-size: 0.8rem">Continue Shopping</a>
+                                    </div>
+                                </div>
+                            </div>
                         @endif
                     @else
                         <div class="row">

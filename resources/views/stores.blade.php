@@ -131,13 +131,19 @@
                 <div class="row">
 
                     @foreach ($stores as $store)
+                    @if ($store->store_id != null)
                         <div class="col-md-3 d-md-block">
                             <!--Avatar-->
                             <div class="avatar mx-auto col-md-12 text-center">
-                                <a href="/show/{{ $store->store_id }}">
-                                    <img src="{{ asset('storage/images/'.$store->logo) }}"
-                                        class="rounded-circle img-fluid">
-                                </a>
+                                @if (Auth::guard('store')->user()->logo != "")
+                                    <a href="/show/{{ $store->store_id }}">
+                                        <img src="{{ asset('storage/images/'.$store->logo) }}"
+                                            class="rounded-circle img-fluid">
+                                    </a>
+                                @else
+                                    <i class="fas fa-user fa-fw"></i>
+                                @endif
+                                
                             </div>
                             <!--Content-->
                             <h4 class="font-weight-bold mt-4 text-center">{{ $store->store_name }}</h4>
@@ -153,6 +159,7 @@
                                 <i class="far fa-star"> </i>
                             </div>
                         </div>
+                    @endif
                     @endforeach
                 </div>
 

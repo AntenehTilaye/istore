@@ -118,13 +118,19 @@ id="main-navbar">
              data-mdb-toggle="dropdown"
              aria-expanded="false"
              >
-            <img
-                 src="{{ asset('storage/images/'.Auth::guard('store')->user()->logo) }}"
-                 class="rounded-circle"
-                 height="22"
-                 alt=""
-                 loading="lazy"
-                 />
+               
+             @if (Auth::guard('store')->user()->logo != "")
+             <img
+             src="{{ asset('storage/images/'.Auth::guard('store')->user()->logo) }}"
+             class="rounded-circle"
+             height="22"
+             alt=""
+             loading="lazy"
+             />
+             @else
+             <i class="fas fa-user fa-fw"></i>
+             @endif
+            
           </a>
           <ul
               class="dropdown-menu dropdown-menu-end"
