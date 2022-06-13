@@ -25,7 +25,7 @@
     <header>
 
         <!-- Navbar -->
-        <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+        <nav id="front-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
             <!-- Container wrapper -->
             <div class="container-fluid">
                 {{-- <!-- Toggle button -->
@@ -50,7 +50,7 @@
 
 
                 <!-- Right links -->
-                <ul id="sidebarMenu" class="menu navbar-nav ms-auto d-flex flex-row sidebar2 collapse bg-white mx-5">
+                <ul id="sidebarMenu" class="menu navbar-nav ms-auto d-flex flex-row sidebar2 collapse mx-5">
 
                     <li class="nav-item">
                         <a class="{{ $current == 1 ? 'active' : '' }} nav-link d-flex align-items-center btn btn-sm shadow-0 mx-2 list-group list-group-flush mx-3 mt-4"
@@ -94,9 +94,9 @@
     @yield('content')
 
     <!-- Footer -->
-    <footer class="section page-footer text-center text-md-left stylish-color-dark pt-0">
+    <footer class="front-footer section page-footer text-center text-md-left stylish-color-dark pt-0">
 
-        <div style="background-color: #4285f4;">
+        <div style="background-color: #6e4dc9;">
 
             <div class="container">
 
@@ -104,9 +104,9 @@
                 <div class="row py-4 d-flex align-items-center">
 
                     <!-- Grid column -->
-                    <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <div class="col-md-6 col-lg-5 text-md-left mb-4 mb-md-0">
 
-                        <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                        <h6 class="mb-0">Get connected with us on social networks!</h6>
 
                     </div>
                     <!-- Grid column -->
@@ -117,35 +117,35 @@
                         <!-- Facebook -->
                         <a class="fb-ic ml-0 px-2">
 
-                            <i class="fab fa-facebook-f white-text"> </i>
+                            <i class="fab fa-facebook-f"> </i>
 
                         </a>
 
                         <!-- Twitter -->
                         <a class="tw-ic px-2">
 
-                            <i class="fab fa-twitter white-text"> </i>
+                            <i class="fab fa-twitter"> </i>
 
                         </a>
 
                         <!-- Google + -->
                         <a class="gplus-ic px-2">
 
-                            <i class="fab fa-google-plus-g white-text"> </i>
+                            <i class="fab fa-google-plus-g"> </i>
 
                         </a>
 
                         <!-- Linkedin -->
                         <a class="li-ic px-2">
 
-                            <i class="fab fa-linkedin-in white-text"> </i>
+                            <i class="fab fa-linkedin-in"> </i>
 
                         </a>
 
                         <!-- Instagram -->
                         <a class="ins-ic px-2">
 
-                            <i class="fab fa-instagram white-text"> </i>
+                            <i class="fab fa-instagram"> </i>
 
                         </a>
 

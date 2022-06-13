@@ -18,7 +18,8 @@
 </head>
 <body>
     <!--Main Navigation-->
-<header>
+<header
+id="main-navbar">
   <!-- Sidebar -->
   <nav
        id="sidebarMenu"
@@ -31,7 +32,7 @@
            class="list-group-item list-group-item-action py-2 ripple  {{ $current == 1? 'active' : '' }}"
            aria-current="true"
            >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i
+          <i class="fas fa-chart-line fa-fw me-3"></i
             ><span>Dashboard</span>
         </a>
         <a
@@ -44,7 +45,7 @@
         <a
            href="{{ route('admin.admins') }}"
            class="list-group-item list-group-item-action py-2 ripple  {{ $current == 3? 'active' : '' }}"
-           ><i class="fas fa-chart-line fa-fw me-3"></i
+           ><i class="fas fa-user fa-fw me-3"></i
           ><span>Admins</span></a
           >
         
@@ -54,8 +55,7 @@
 
   <!-- Navbar -->
   <nav
-       id="main-navbar"
-       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       class="navbar navbar-expand-lg navbar-light fixed-top"
        >
     <!-- Container wrapper -->
     <div class="container-fluid">
@@ -92,7 +92,15 @@
 
       <!-- Right links -->
       <ul class="navbar-nav ms-auto d-flex flex-row">
-
+        <li class="nav-item" >
+          <a
+             class="nav-link d-flex align-items-center btn btn-sm shadow-0 mx-2"
+             href="/store/login"
+             role="button"
+             >
+            Login as a Store
+          </a>
+        </li>
         <!-- Avatar -->
         <li class="nav-item dropdown">
           <a
@@ -103,13 +111,7 @@
              data-mdb-toggle="dropdown"
              aria-expanded="false"
              >
-            <img
-                 src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg"
-                 class="rounded-circle"
-                 height="22"
-                 alt=""
-                 loading="lazy"
-                 />
+             <i class="fas fa-user"></i>
           </a>
           <ul
               class="dropdown-menu dropdown-menu-end"

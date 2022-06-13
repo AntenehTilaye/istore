@@ -64,7 +64,6 @@
                                 <label for="email">Category</label>
                                 <div class="text-danger">@error('category'){{ $message }}@enderror</div>
                             </div>
-                            
 
                             @foreach ($cats as $cat)
                                 <div isSelected = "no" onclick="section_toggle('section_number_{{ $cat->id }}', '{{ $cat->id }}')" id="section_number_{{ $cat->id }}" class="section-not-selected">

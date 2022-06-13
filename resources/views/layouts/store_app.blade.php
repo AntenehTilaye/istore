@@ -18,7 +18,8 @@
 </head>
 <body>
     <!--Main Navigation-->
-<header>
+<header 
+id="main-navbar">
   <!-- Sidebar -->
   <nav
        id="sidebarMenu"
@@ -31,7 +32,7 @@
            class="list-group-item list-group-item-action py-2 ripple {{ $current == 1? 'active' : '' }}"
            aria-current="true"
            >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i
+          <i class="fas fa-chart-line fa-fw me-3"></i
             ><span>Dashboard</span>
         </a>
         <a
@@ -59,8 +60,7 @@
 
   <!-- Navbar -->
   <nav
-       id="main-navbar"
-       class="navbar navbar-expand-lg navbar-light bg-white fixed-top"
+       class="navbar navbar-expand-lg navbar-light fixed-top"
        >
     <!-- Container wrapper -->
     <div class="container-fluid">

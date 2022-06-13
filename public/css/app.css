@@ -32,6 +32,7 @@ body {
         position: fixed !important;
         top: 50px !important;
         display: none;
+        background-color: white;
     }
     .sidebar2 li {
         display: block !important;
@@ -98,26 +99,26 @@ form button {
     width: 100%;
 }
 
-.navbar {
+#main-navbar .navbar {
     color: white !important;
     background-color: #6f42c1 !important;
     box-shadow: none !important;
     height: 55px;
 }
 
-.navbar-light .navbar-toggler {
+#main-navbar .navbar-light .navbar-toggler {
     color: white !important;
 }
 
-.navbar-light .navbar-brand {
+#main-navbar .navbar-light .navbar-brand {
     color: white !important;
 }
 
-.navbar .input-group-text {
+#main-navbar .navbar .input-group-text {
     color: white !important;
 }
 
-.navbar-light .navbar-nav .nav-link {
+#main-navbar .navbar-light .navbar-nav .nav-link {
     color: white !important;
 }
 
@@ -199,14 +200,14 @@ body {
 }
 
 .section-header {
-    border-left: 5px solid rgb(140, 9, 192) !important;
+    border-left: 5px solid #6f42c1 !important;
     padding: 5px 10px;
 }
 
 .cat-list {
     width: 100%;
     float: left;
-    background-color: rgb(140, 9, 192);
+    background-color: #6f42c1;
     padding: 10px 10px;
     border-radius: 10px;
     border-top-left-radius: 0px;
@@ -226,7 +227,7 @@ body {
 }
 
 .one-cat:hover {
-    background-color: rgb(140, 9, 192);
+    background-color: #6f42c1;
     color: white;
 }
 
@@ -278,7 +279,7 @@ body {
 }
 
 .product .actions .action-btns:hover {
-    background-color: rgb(144, 54, 167);
+    background-color: #6f42c1;
     color: white;
 }
 
@@ -329,7 +330,7 @@ body {
 }
 
 .product-info .actions .action-btns:hover {
-    background-color: rgb(144, 54, 167);
+    background-color: #6f42c1;
     color: white;
 }
 
@@ -339,7 +340,7 @@ body {
 }
 
 .menu .nav-item .active {
-    background-color: rgb(110, 77, 201);
+    background-color: #6f42c1;
     color: white !important;
     border-radius: 10px;
     padding: 6px 15px;
@@ -448,4 +449,13 @@ body {
     .oneInfo {
         width: 45% !important;
     }
+}
+
+.front-footer {
+    background-color: #6f42c1;
+    color: white;
+}
+
+.front-footer a {
+    color: white;
 }

@@ -22,8 +22,18 @@ class StoreController extends Controller
         $product_count = count(DB::table('products')->where('store_id', Auth::guard('store')->user()->id)->get());
         $order_count = count(DB::table('orders')->where('storeId', Auth::guard('store')->user()->id)->get());
         $delivered_count = count(DB::table('orders')->where('storeId', Auth::guard('store')->user()->id)->where('status', 2)->get());
+        $numOfOrdersByDay = DB::table('orders')
+                                ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(created_at) as num'))
+                                ->where('storeId', Auth::guard('store')->user()->id)
+                                ->groupBy(DB::raw('cast(created_at AS DATE)'))
+                                ->get();
+        $numOfProductsByDay = DB::table('products')
+                                ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(created_at) as num'))
+                                ->where('store_id', Auth::guard('store')->user()->id)
+                                ->groupBy(DB::raw('cast(created_at AS DATE)'))
+                                ->get();
         // return $cats;
-        return view('dashboard.store.stats', ['cat_count'=>$cat_count, 'product_count'=>$product_count, 'order_count'=>$order_count, 'delivered_count'=>$delivered_count]);
+        return view('dashboard.store.stats', ['numOfOrdersByDay'=>$numOfOrdersByDay,'numOfProductsByDay'=>$numOfProductsByDay,'cat_count'=>$cat_count, 'product_count'=>$product_count, 'order_count'=>$order_count, 'delivered_count'=>$delivered_count]);
     }
 
     function create(Request $request)

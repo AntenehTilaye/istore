@@ -17,6 +17,25 @@ use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
+    function dashboard(Request $request)
+    {
+        $store_count = count(DB::table('stores')->get());
+        $product_count = count(DB::table('products')->get());
+        $order_count = count(DB::table('orders')->get());
+        $delivered_count = count(DB::table('orders')->where('status', 2)->get());
+        $numOfOrdersByDay = DB::table('orders')
+                                ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(created_at) as num'))
+                                ->groupBy(DB::raw('cast(created_at AS DATE)'))
+                                ->get();
+        $numOfProductsByDay = DB::table('products')
+                                ->select(DB::raw('DATE(created_at) as date'), DB::raw('count(created_at) as num'))
+                                ->groupBy(DB::raw('cast(created_at AS DATE)'))
+                                ->get();
+        // return $cats;
+        return view('dashboard.admin.stats', ['numOfOrdersByDay'=>$numOfOrdersByDay,'numOfProductsByDay'=>$numOfProductsByDay,'store_count'=>$store_count, 'product_count'=>$product_count, 'order_count'=>$order_count, 'delivered_count'=>$delivered_count]);
+    }
+
+
     function check(Request $request){
          //Validate Inputs
          $request->validate([
