@@ -45,13 +45,13 @@ id="main-navbar">
         <a
            href="{{ route('store.categorys') }}"
            class="list-group-item list-group-item-action py-2 ripple {{ $current == 3? 'active' : '' }}"
-           ><i class="fas fa-chart-line fa-fw me-3"></i
+           ><i class="fas fa-list fa-fw me-3"></i
           ><span>Category</span></a
           >
         <a
            href="{{ route('store.orders') }}"
            class="list-group-item list-group-item-action py-2 ripple {{ $current == 4? 'active' : '' }}"
-           ><i class="fas fa-chart-line fa-fw me-3"></i
+           ><i class="fa fa-truck fa-fw me-3"></i
           ><span>Orders</span></a
           >
     </div>

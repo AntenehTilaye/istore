@@ -51,13 +51,8 @@
         <!--Navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
             <div class="container">
-                <a class="navbar-brand" href="#"><strong>Istore</strong></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse offset-md-6" id="navbarSupportedContent-7">
+                <a class="navbar-brand" href="/"><strong>Istore</strong></a>
+                <nav class=" navbar offset-sm-1" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Home</a>
@@ -72,7 +67,7 @@
                             <a class="nav-link" href="{{ route('store.login') }}">Login</a>
                         </li>
                     </ul>
-                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                    <ul class="navbar-nav navbar-collapse ml-auto nav-flex-icons">
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light"><i class="fab fa-twitter"></i></a>
                         </li>
@@ -83,7 +78,7 @@
                             <a class="nav-link waves-effect waves-light"><i class="fab fa-facebook-f"></i></a>
                         </li>
                     </ul>
-                </div>
+                </nav>
             </div>
         </nav>
 
@@ -208,7 +203,7 @@
 
                         <!-- First column -->
                         <div class="col-lg-7 col-md-12 mb-4 text-center">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/screen.jpg" alt=""
+                            <img src="{{ asset('storage/web/dashboard_web.PNG') }}" alt=""
                                 class="img-fluid z-depth-2 rounded">
                         </div>
                         <!-- /First column -->
@@ -311,7 +306,7 @@
 
                             <!--Grid column-->
                             <div class="col-md-12 col-lg-4 px-5 mb-2 text-center text-md-left flex-center">
-                                <img src="https://mdbootstrap.com/img/Mockups/Transparent/Small/admin-new1.png" alt=""
+                                <img src="{{ asset('storage/web/dashboard_mobile.PNG') }}" alt=""
                                     class="z-depth-0 img-fluid">
                             </div>
                             <!--Grid column-->
@@ -574,7 +569,7 @@
                                     <div class="testimonial">
                                         <!--Avatar-->
                                         <div class="avatar mx-auto">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(26).jpg"
+                                            <img src="{{ asset('storage/web/avator1.jpg') }}"
                                                 class="rounded-circle img-fluid">
                                         </div>
                                         <!--Content-->
@@ -600,12 +595,12 @@
                                     <div class="testimonial">
                                         <!--Avatar-->
                                         <div class="avatar mx-auto">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(27).jpg"
+                                            <img src="{{ asset('storage/web/avator2.jpg') }}"
                                                 class="rounded-circle img-fluid">
                                         </div>
                                         <!--Content-->
                                         <h4 class="font-weight-bold mt-4">John Doe</h4>
-                                        <h6 class="purple-text font-weight-bold my-3">Owner od Store</h6>
+                                        <h6 class="purple-text font-weight-bold my-3">Owner of Store</h6>
                                         <p class="font-weight-normal"><i class="fas fa-quote-left pr-2"></i>Ut enim ad
                                             minima veniam, quis
                                             nostrum exercitationem ullam corporis laboriosam.</p>
@@ -626,7 +621,7 @@
                                     <div class="testimonial">
                                         <!--Avatar-->
                                         <div class="avatar mx-auto">
-                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(31).jpg"
+                                            <img src="{{ asset('storage/web/avator3.jpg') }}"
                                                 class="rounded-circle img-fluid">
                                         </div>
                                         <!--Content-->
@@ -796,9 +791,9 @@
         })
 
         // Material Select Initialization
-        $(document).ready(function() {
-            $('.mdb-select').material_select();
-        });
+        // $(document).ready(function() {
+        //     $('.mdb-select').material_select();
+        // });
     </script>
 
 </body>
