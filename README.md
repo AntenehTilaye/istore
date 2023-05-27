@@ -1,4 +1,4 @@
-## Test Project for job application
+## Istore
 ## About Project
 
 Istore is a web application that allow users to create an online store, where the user can create and start selling products with in minutes.
