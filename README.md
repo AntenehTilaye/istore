@@ -1,7 +1,7 @@
 ## Test Project for job application
 ## About Project
 
-Istore is a web application that allow users to create an online store, where the user can create and start selling products with in minutes. this product is developed as a Test Project for Software Engineering Position. Still it is not finished but in great condition
+Istore is a web application that allow users to create an online store, where the user can create and start selling products with in minutes.
 
 ## Installation
 - clone this repo
